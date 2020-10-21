@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-one',
-  template: ` <p>one works!</p> `,
+  template: `<p>{{ text }}</p>`,
   styleUrls: ['./one.component.scss'],
 })
 export class OneComponent implements OnInit {
-  constructor() {}
+  text: string;
 
   ngOnInit(): void {
-    console.log(`${new Date()} ngOnInit for OneComponent`);
+    this.text = `${new Date()} ngOnInit for OneComponent`;
   }
 }
