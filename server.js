@@ -2,6 +2,12 @@ const path = require("path");
 const express = require("express");
 const app = express();
 
+app.use((req, res, next) => {
+  res.append("Cache-Control", "no-store");
+  res.append("Pragma", "no-cache");
+  next();
+});
+
 // Serve static files
 app.use(express.static(path.join(__dirname, "/dist/jhp-safari-back")));
 
